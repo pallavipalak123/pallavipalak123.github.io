@@ -50,10 +50,10 @@ export class LoginComponent implements OnInit {
          .subscribe(
         response => {
             this.forgotFail = false;
-            console.log(response.message);
-            this.toasterService.pop('success', 'Args title', 'Args body');
-            this.router.navigate(['/dashboard-v1']);
+            console.log(response.message); 
+            this.router.navigate(['/dashboard']);
             console.log('Logged in successfully. A verification message is sent on your email id.')
+            this.toasterService.pop('success', 'Args title', 'Args body');
             this.forgotSuccessMessage = response.message;
             this.forgotSuccess = true;
         },
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
             this.forgotSuccess = false;
             console.log(error);
             console.log('You have entered invalid credentials')
-            this.toasterService.pop('error', 'title', 'body');
+            this.toasterService.pop('error','Credentials you have entered is not matching');
             const forgotFailErrorMessage =  JSON.parse(error._body);
             this.forgotFailMessage = forgotFailErrorMessage.message.email;
             this.forgotFail = true;

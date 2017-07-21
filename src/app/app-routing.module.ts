@@ -47,10 +47,10 @@ const routes: Routes = [
     path: 'dashboard-v1',
     component: DashboardV1Component 
   },
-
+ 
       
   {
-    path: '',
+    path: 'dashboard',
     component: AdminComponent,
     children: [
       {
@@ -148,7 +148,11 @@ const routes: Routes = [
         component: EditorComponent
       }
     ]
-  }
+  },
+   {
+     path: '**',
+     redirectTo: 'login',
+    }
 ];
 
 @NgModule({
